@@ -5,7 +5,7 @@ mkdir -p output/opt/openrov/
 
 cd output/opt/openrov
 
-// Get the Arduino IDE
+# Get the Arduino IDE
 git clone https://github.com/arduino/Arduino.git arduino
 cd arduino
 git checkout 36c94191183600440676967d996abff8dbcd149d
