@@ -10,6 +10,8 @@ git clone https://github.com/arduino/Arduino.git arduino
 cd arduino
 git checkout 36c94191183600440676967d996abff8dbcd149d
 
+rm -rf .git*
+
 # Remove IDE files, we just want the core files and libraries
 rm -rf app/ arduino-core/ build/ .classpath .project README.md examples_formatter.conf format.every.sketch.sh lib_sync
 
@@ -20,6 +22,11 @@ cd ..
 
 # Get the OpenROV cores
 git clone https://github.com/OpenROV/OROV-ArduinoCores.git openrov
+cd openrov
+
+rm -rf .git*
+
+cd ..
 
 # Setup arduino tools
 cd tools
@@ -27,6 +34,7 @@ cd tools
 # Build CTAGS
 git clone https://github.com/arduino/ctags.git
 cd ctags
+rm -rf .git*
 ./configure
 make -j8
 cp ctags ../ctags2
@@ -37,6 +45,7 @@ mv ctags2 ctags
 # Build bossac
 git clone https://github.com/spiderkeys/BOSSA.git
 cd BOSSA
+rm -rf .git*
 make
 cp bin/bossac ..
 cd ..
