@@ -13,6 +13,8 @@ then
   ARCH="armhf"
 fi
 
+rm -rf output/opt/openrov/*
+
 ./build.sh
 
 export PACKAGE_VERSION=1.0.0-1~${BUILD_NUMBER}
@@ -25,3 +27,5 @@ fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
 	-v ${PACKAGE_VERSION} \
 	--description "OpenROV Arduino core files and tools" \
 	-C ${DIR}/output ./
+
+rm -rf output/opt/openrov/*
