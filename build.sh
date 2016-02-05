@@ -45,8 +45,9 @@ mv ctags2 ctags
 # Build bossac
 git clone https://github.com/spiderkeys/BOSSA.git
 cd BOSSA
+git checkout arduino
 rm -rf .git*
-make
+make bossac
 cp bin/bossac ..
 cd ..
 rm -rf BOSSA
