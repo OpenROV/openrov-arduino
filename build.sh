@@ -1,38 +1,21 @@
 #!/bin/bash
 set -e
 
+apt-get install libtool libusb-1.0-0-dev autoconf pkg-config
+
 mkdir -p output/opt/openrov/
 mkdir -p output/usr/local/
 
 cd output/opt/openrov
 
-# Get the Arduino IDE
-git clone https://github.com/arduino/Arduino.git arduino
+# Get the OpenROV Arduino core files
+git clone https://github.com/OpenROV/OROV-ArduinoCores.git arduino
 cd arduino
-git checkout 36c94191183600440676967d996abff8dbcd149d
 
 rm -rf .git*
-
-# Remove IDE files, we just want the core files and libraries
-rm -rf app/ arduino-core/ build/ .classpath .project README.md examples_formatter.conf format.every.sketch.sh lib_sync
-
-# Remove the arduino core files. We don't need these.
-rm -rf hardware/arduino
-
-cd hardware
-
-# Get the OpenROV cores
-git clone https://github.com/OpenROV/OROV-ArduinoCores.git
-cd OROV-ArduinoCores
-
-rm -rf .git*
-mv ./* ../
-cd ..
-
-rm -rf OROV-ArduinoCores
 
 # Setup arduino tools
-cd tools
+cd hardware/tools
 
 # Build CTAGS
 git clone https://github.com/arduino/ctags.git
