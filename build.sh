@@ -21,13 +21,13 @@ rm -rf hardware/arduino
 
 # Get the OpenROV cores
 git clone https://github.com/OpenROV/OROV-ArduinoCores.git
-cd openrov
+cd OROV-ArduinoCores
 
 rm -rf .git*
 mv ./* ../
 cd ..
 
-rm -rf OROV-ArduinoCores.git
+rm -rf OROV-ArduinoCores
 
 # Setup arduino tools
 cd tools
