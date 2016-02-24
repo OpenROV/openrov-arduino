@@ -42,7 +42,7 @@ rm -rf BOSSA
 git clone https://github.com/ntfreak/openocd.git
 cd openocd
 ./bootstrap
-./configure --prefix=output/usr/local/ --enable-sysfsgpio
+./configure --prefix=./output/usr/local/ --enable-sysfsgpio
 make -j8
 make install
 cd ..
