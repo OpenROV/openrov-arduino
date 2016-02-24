@@ -2,6 +2,7 @@
 set -e
 
 mkdir -p output/opt/openrov/
+mkdir -p output/usr/local/
 
 cd output/opt/openrov
 
@@ -15,18 +16,18 @@ rm -rf .git*
 # Remove IDE files, we just want the core files and libraries
 rm -rf app/ arduino-core/ build/ .classpath .project README.md examples_formatter.conf format.every.sketch.sh lib_sync
 
-# Remove the sam core files. We don't need these.
-cd hardware/arduino
-rm -rf sam
-cd ..
+# Remove the arduino core files. We don't need these.
+rm -rf hardware/arduino
 
 # Get the OpenROV cores
-git clone https://github.com/OpenROV/OROV-ArduinoCores.git openrov
+git clone https://github.com/OpenROV/OROV-ArduinoCores.git
 cd openrov
 
 rm -rf .git*
-
+mv ./* ../
 cd ..
+
+rm -rf OROV-ArduinoCores.git
 
 # Setup arduino tools
 cd tools
@@ -53,8 +54,15 @@ cd ..
 rm -rf BOSSA
 
 # Build openocd
-# TODO
-  
+git clone https://github.com/ntfreak/openocd.git
+cd openocd
+./bootstrap
+./configure --prefix=output/usr/local/ --enable-sysfsgpio
+make -j8
+make install
+cd ..
+rm -rf openocd
+
 # Download Atmel's CMSIS
 wget http://downloads.arduino.cc/CMSIS-4.0.0.tar.bz2
 tar xfj CMSIS-4.0.0.tar.bz2

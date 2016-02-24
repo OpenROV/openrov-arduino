@@ -13,7 +13,7 @@ then
   ARCH="armhf"
 fi
 
-rm -rf output/opt/openrov/*
+rm -rf output/*
 
 ./build.sh
 
@@ -28,4 +28,4 @@ fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
 	--description "OpenROV Arduino core files and tools" \
 	-C ${DIR}/output ./
 
-rm -rf output/opt/openrov/*
+rm -rf output/*
