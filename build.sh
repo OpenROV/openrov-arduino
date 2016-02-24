@@ -19,6 +19,8 @@ rm -rf app/ arduino-core/ build/ .classpath .project README.md examples_formatte
 # Remove the arduino core files. We don't need these.
 rm -rf hardware/arduino
 
+cd hardware
+
 # Get the OpenROV cores
 git clone https://github.com/OpenROV/OROV-ArduinoCores.git
 cd OROV-ArduinoCores
