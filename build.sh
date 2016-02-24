@@ -6,6 +6,8 @@ apt-get install libtool libusb-1.0-0-dev autoconf pkg-config
 mkdir -p output/opt/openrov/
 mkdir -p output/usr/local/
 
+OPENOCD_DIR=${PWD}/output/usr/local
+
 cd output/opt/openrov
 
 # Get the OpenROV Arduino core files
@@ -42,7 +44,7 @@ rm -rf BOSSA
 git clone https://github.com/ntfreak/openocd.git
 cd openocd
 ./bootstrap
-./configure --prefix=${PWD}/../../../output/usr/local/ --enable-sysfsgpio
+./configure --prefix=${OPENOCD_DIR} --enable-sysfsgpio
 make -j8
 make install
 cd ..
