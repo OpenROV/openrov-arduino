@@ -40,16 +40,6 @@ cp bin/bossac ..
 cd ..
 rm -rf BOSSA
 
-# Build openocd
-git clone http://repo.or.cz/openocd.git
-cd openocd
-./bootstrap
-./configure --prefix=${OPENOCD_DIR} --enable-sysfsgpio --enable-maintainer-mode --enable-bcm2835gpio
-make -j8
-make install
-cd ..
-rm -rf openocd
-
 # Download Atmel's CMSIS
 wget http://downloads.arduino.cc/CMSIS-4.0.0.tar.bz2
 tar xfj CMSIS-4.0.0.tar.bz2
