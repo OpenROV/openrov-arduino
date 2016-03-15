@@ -41,10 +41,10 @@ cd ..
 rm -rf BOSSA
 
 # Build openocd
-git clone https://github.com/ntfreak/openocd.git
+git clone http://repo.or.cz/openocd.git
 cd openocd
 ./bootstrap
-./configure --prefix=${OPENOCD_DIR} --enable-sysfsgpio
+./configure --prefix=${OPENOCD_DIR} --enable-sysfsgpio --enable-maintainer-mode --enable-bcm2835gpio
 make -j8
 make install
 cd ..
