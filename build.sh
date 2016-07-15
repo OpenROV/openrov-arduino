@@ -11,10 +11,8 @@ OPENOCD_DIR=${PWD}/output/usr/local
 cd output/opt/openrov
 
 # Get the OpenROV Arduino core files
-git clone https://github.com/OpenROV/OROV-ArduinoCores.git arduino
+git clone https://github.com/OpenROV/openrov-arduino-cores.git arduino --depth=1
 cd arduino
-
-rm -rf .git*
 
 # Setup arduino tools
 cd hardware/tools
@@ -29,16 +27,6 @@ cp ctags ../ctags2
 cd ..
 rm -rf ctags/
 mv ctags2 ctags
-
-# Build bossac
-git clone https://github.com/spiderkeys/BOSSA.git
-cd BOSSA
-git checkout arduino
-rm -rf .git*
-make bossac
-cp bin/bossac ..
-cd ..
-rm -rf BOSSA
 
 # Download Atmel's CMSIS
 wget http://downloads.arduino.cc/CMSIS-4.0.0.tar.bz2
